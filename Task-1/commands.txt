@@ -1,0 +1,75 @@
+Kubernetes Installation
+--------------------------------------------------------
+
+Prerequisites:
+3 VM ->  One VM for running masternode and 2 VM for running workernodes.
+Each Virtual Machine should have atleast 2 GB(2048) memory and 2 CPU's .
+
+
+Login as Root on masternode and do the steps below:
+
+step1- # hostnamectl set-hostname kubemaster.unixcloudfusion.in
+       #bash
+step2- Add ipaddress and hostname of all 3 virtual machines inside /etc/hosts
+       #yum install -y net-tools vim
+       #ifconfig
+       #vim /etc/hosts
+        <ipaddress1> <hostname1>
+        <ipaddress2> <hostname2>
+        <ipaddress3> <hostname3>
+step3- #free -m
+       #swapoff -a
+       #vim /etc/fstab
+        comment out the lines with swap entries
+step4- #setenforce 0
+       #vim /etc/sysconfig/selinux
+         SELINUX=disabled
+step5- #modprobe br_netfilter
+       #echo '1'> /proc/sys/net/bridge/bridge-nf-call-iptables
+step5- #curl -fsSL get.docker.com|sh
+       #usermod -aG docker vagrant
+step6- #vim /etc/yum.repos.d/kubernetes.repo
+       [kubernetes]
+       name=kubernetes
+       baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+       enabled=1
+       gpgcheck=0
+step7- #yum install -y kubeadm kubectl kubelet
+step8- #systemctl enable docker
+       #systemctl start docker
+       #systemctl enable kubelet
+step9- #vim /etc/docker/daemon.json
+        {
+          "exec-opts":["native.cgroupdriver=systemd"]
+        }
+step10- #systemctl restart docker
+        #systemctl status docker
+
+Repeat the steps 1-10 on workernode1 and workernode2.
+
+On kubemaster Node 
+---------------------
+login as root user
+#kubeadm init --apiserver-advertise-address=<ipadressofkubemaster> --pod-network-cidr=10.244.0.0/16
+
+login as vagrant user
+#mkdir -p $HOME/.kube
+#sudo cp -i /etc/kubernetes/admin.conf
+#sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+login as root user
+#echo "export KUBECONFIG=/etc/kubernetes/admin.conf>> $HOME/.bashrc
+#kubectl get pods
+#kubectl apply -f calico.yaml
+#kubectl get nodes 
+
+Run the token command on worker node1 and worker node2 as root user
+
+login as vagrant or root user on kubemaster 
+
+#kubectl get nodes
+
+
+
+     
+
