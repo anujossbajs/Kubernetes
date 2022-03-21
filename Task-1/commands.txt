@@ -62,6 +62,7 @@ login as root user
 #kubectl get pods
 #kubectl apply -f calico.yaml
 #kubectl get nodes 
+---------------------------
 
 Run the token command on worker node1 and worker node2 as root user
 
