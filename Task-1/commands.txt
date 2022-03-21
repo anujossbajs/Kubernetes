@@ -50,7 +50,7 @@ Repeat the steps 1-10 on workernode1 and workernode2.
 On kubemaster Node 
 ---------------------
 login as root user
-#kubeadm init --apiserver-advertise-address=<ipadressofkubemaster> --pod-network-cidr=10.244.0.0/16
+#kubeadm init --apiserver-advertise-address=<ipaddressofkubemaster> --pod-network-cidr=10.244.0.0/16
 
 login as vagrant user
 #mkdir -p $HOME/.kube
