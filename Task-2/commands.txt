@@ -1,0 +1,20 @@
+Create a Pod for nginx image. Create a test HTML page. Expose the pod on port 80.
+-------------------------------------------------------------------------
+
+vim nginx-pod.yaml
+kubectl create -f nginx-pod.yaml
+kubectl get pods
+kubectl get pod -o wide
+kubectl describe pod nginx-pod
+kubectl exec -it nginx-pod -- /bin/sh
+cat <<EOF > /usr/share/nginx/html/test.html
+<html>
+<h1>Testing..</h1>
+</html>
+exit
+kubectl expose pod nginx-pod --type=NodePort --port=80
+kubectl describe svc nginx-pod
+kubectl get svc
+curl nodeip:nodeport/test.html
+kubectl delete svc nginx-pod
+kubectl delete pod nginx-pod

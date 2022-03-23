@@ -1,0 +1,25 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+
+  name: nginx-tomcat
+
+  labels:
+
+    app: nginx
+
+    tier: prod
+
+spec:
+
+  containers:
+
+  - name: c1
+
+    image: nginx
+
+  - name: c2
+
+    image: tomcat:9

@@ -1,0 +1,14 @@
+Create a Pod with multiple containers for nginx and tomcat image. 
+-------------------------------------------------------------------
+
+vim nginx-pod.yaml
+kubectl create -f pod.yaml
+kubectl get pods
+kubectl get pod -o wide
+kubectl describe pod nginx-tomcat
+kubectl exec -it nginx-tomcat -c c1 -- /bin/sh
+curl localhost:80
+curl localhost:8080
+kubectl exec -it nginx-tomcat -c c2 -- /bin/sh
+curl localhost:80
+curl localhost:8080
