@@ -1,4 +1,4 @@
-Create a Pod with multiple containers for nginx and tomcat image. 
+Create a single Pod with multiple containers for nginx and tomcat image. 
 -------------------------------------------------------------------
 
 vim nginx-pod.yaml
