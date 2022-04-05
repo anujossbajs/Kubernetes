@@ -1,0 +1,19 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+
+ name: pod2
+
+spec:
+
+  containers:
+
+   - name: container1
+
+     image: nginx
+
+  nodeSelector:
+
+     env: prod

@@ -1,0 +1,12 @@
+Create a Pod for nginx image on the worker node which is of production environment
+-------------------------------------------------------------------
+mkdir pod
+cd pod
+vim pod2.yaml
+kubectl get nodes --show-labels
+// Check the label on a specific node ( say kubenode2)
+kubectl get nodes --show-labels kubenode2
+kubectl label nodes kubenode2 env=prod
+kubectl create -f pod2.yaml
+kubectl get pods
+kubectl get pods -o wide
