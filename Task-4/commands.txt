@@ -1,0 +1,8 @@
+Create a Pod for nginx image and assign it on node "kubenode1".
+-------------------------------------------------------------------
+mkdir pod
+cd pod
+vim pod1.yaml
+kubectl create -f pod1.yaml
+kubectl get pods
+kubectl get pods -o wide

@@ -1,7 +1,7 @@
 Create a single Pod with multiple containers for nginx and tomcat image. 
 -------------------------------------------------------------------
 
-vim nginx-pod.yaml
+vim pod.yaml
 kubectl create -f pod.yaml
 kubectl get pods
 kubectl get pod -o wide
