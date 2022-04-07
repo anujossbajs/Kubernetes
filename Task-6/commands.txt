@@ -1,0 +1,10 @@
+Create a pod which can be placed on node "kubenode2" which has labels env=test or stag
+-------------------------------------------------------------------
+mkdir pod
+cd pod
+vim nodeaffinity.yaml
+kubectl get nodes --show-labels
+kubectl get nodes --show-labels kubenode2
+kubectl label nodes kubenode2 env=test 
+kubectl create -f nodeaffinity.yaml
+kubectl get pods -o wide
