@@ -5,3 +5,4 @@
 - Task 4 - Create a Pod for nginx image and assign it on node "kubenode1".
 - Task 5 - Create a Pod for nginx image on the worker node which is of production environment.
 - Task 6 - Create a pod which can be placed on node which has labels env=test or stag.
+- Task 7 - Create a pod which has the toleration on worker node which is tainted for app=web.

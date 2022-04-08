@@ -1,0 +1,10 @@
+Create a pod which has the toleration on worker node which is tainted for app=web. Create the pod 
+and display. Remove the taint.
+---------------------------------------------------------------------------
+kubectl taint nodes kwn1 app=web:NoSchedule
+kubectl describe node kwn1
+vim taint.yaml
+kubectl create -f taint.yaml
+kubectl get pods -o wide
+kubectl taint nodes kwn1 app-
+kubectl describe node kwn1
