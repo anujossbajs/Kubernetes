@@ -1,4 +1,4 @@
-Create a pod which can be placed on node "kubenode2" which has labels env=test or stag
+Create a pod which can be placed on node which has labels env=test or stag
 -------------------------------------------------------------------
 mkdir pod
 cd pod
